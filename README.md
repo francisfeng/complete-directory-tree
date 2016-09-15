@@ -24,10 +24,10 @@ test_data
 │
 ├── some_dir
 │	│
-│   │── another_dir
-│   │	│
-│   │   └── file_a.txt
-│   │	│
+│  │── another_dir
+│  │	│
+│  │  └── file_a.txt
+│  │	│
 │	│	└── file_b.txt
 │	│
 │	│── file_a.txt
@@ -36,7 +36,7 @@ test_data
 │
 ├── some_dir_2
 │	 │
-│    └── .gitkeep
+│   └── .gitkeep
 │
 ├── some_dir_3
 │
