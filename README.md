@@ -8,7 +8,9 @@ This is project is inspired by and based on [mihneadb/node-directory-tree](https
 
 ## Install
 
+```
 npm install --save complete-directory-tree
+````
 
 ## Usage
 
