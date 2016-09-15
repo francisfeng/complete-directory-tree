@@ -4,7 +4,7 @@
   "description": "Convert a directory (even is empty) tree to a JS object.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/francisfeng/directory-tree-all"
+    "url": "https://github.com/francisfeng/complete-directory-tree"
   },
   "keywords": [
     "complete",
