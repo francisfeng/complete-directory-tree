@@ -1,0 +1,43 @@
+The try...catch statement marks a block of statements to try, and specifies a response, should an exception be thrown.
+
+Syntax
+try {
+   try_statements
+}
+[catch (exception_var_1 if condition_1) { // non-standard
+   catch_statements_1
+}]
+...
+[catch (exception_var_2) {
+   catch_statements_2
+}]
+[finally {
+   finally_statements
+}]
+try_statements
+The statements to be executed.
+catch_statements_1, catch_statements_2
+Statements that are executed if an exception is thrown in the try block.
+exception_var_1, exception_var_2
+An identifier to hold an exception object for the associated catch clause.
+condition_1
+A conditional expression.
+finally_statements
+Statements that are executed after the try statement completes. These statements execute regardless of whether or not an exception was thrown or caught.
+Description
+The try statement consists of a try block, which contains one or more statements ({} must always be used, also for single statements), and at least one catch clause or a finally clause, or both. That is, there are three forms of the try statement:
+
+try...catch
+try...finally
+try...catch...finally
+A catch clause contain statements that specify what to do if an exception is thrown in the try block. That is, you want the try block to succeed, and if it does not succeed, you want control to pass to the catch block. If any statement within the try block (or in a function called from within the try block) throws an exception, control immediately shifts to the catch clause. If no exception is thrown in the try block, the catch clause is skipped.
+
+The finally clause executes after the try block and catch clause(s) execute but before the statements following the try statement. It always executes, regardless of whether or not an exception was thrown or caught.
+
+You can nest one or more try statements. If an inner try statement does not have a catch clause, the enclosing try statement's catch clause is entered.
+
+You also use the try statement to handle JavaScript exceptions. See the JavaScript Guide for more information on JavaScript exceptions.
+
+Unconditional catch clause
+
+When a single, unconditional catch clause is used, the catch block is entered when any exception is thrown. For example, when the exception occurs in the following code, control transfers to the catch clause.

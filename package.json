@@ -1,0 +1,31 @@
+{
+  "name": "complete-directory-tree",
+  "version": "1.0.0",
+  "description": "Convert a directory (even is empty) tree to a JS object.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/francisfeng/directory-tree-all"
+  },
+  "keywords": [
+    "complete",
+    "directory",
+    "tree",
+    "empty",
+    "all"
+  ],
+  "main": "src/directory-tree.js",
+  "author": "Francis Feng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/francisfeng/complete-directory-tree/issues"
+  },
+  "homepage": "https://github.com/francisfeng/complete-directory-tree",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "mocha": "^2.2.5"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
