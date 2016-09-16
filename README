@@ -1,55 +1,49 @@
-# complete-directory-tree
-
+ README.md
+complete-directory-tree
 Convert a directory (even is empty) tree to a JS object.
 
-## Inspiration
+Inspiration
 
-This is project is inspired by and based on [mihneadb/node-directory-tree](https://github.com/mihneadb/node-directory-tree)
+This project is inspired by and based on mihneadb/node-directory-tree
 
-## Install
+Install
 
-```
 npm install --save complete-directory-tree
-````
+Test
 
-## Usage
+npm install
+npm test
+Usage
 
-```javascript
 var completeDirectoryTree = require('complete-directory-tree');
 var result = completeDirectoryTree('./test/test_data');
-```
+It takes a directory tree:
 
-This will take a directory tree:
-
-```
 test_data
 │
 ├── some_dir
 │  │
-│  │── another_dir
-│  │  │ │
-│  │  └─│ file_a.txt
-│  │	│
-│  │	└── file_b.txt
+│  ├── another_dir
+│  │   │
+│  │   ├── file_a.txt
+│  │   │
+│  │   └── file_b.txt
 │  │
-│  │── file_a.txt
+│  ├── file_a.txt
 │  │
 │  └── file_b.txt
 │
 ├── some_dir_2
-│	│
+│   │
 │   └── .gitkeep
 │
 ├── some_dir_3
 │
 ├── file_a.txt
 │
-│── file_a.txt
-```
-
+├── file_a.txt
 and returns an object:
 
-```javascript
 {  
    "path":"./test/test_data",
    "children":[  
@@ -123,16 +117,12 @@ and returns an object:
       }
    ]
 }
-```
-
 Also, it accepts an array of extensions.
-```javascript
-var completeDirectoryTree = require('complete-directory-tree');
-var result = completeDirectoryTree('./test/test_data', ['.txt']);
-```
 
+var completeDirectoryTree = require('complete-directory-tree');
+var result = completeDirectoryTree('./test/test_data', ['.txt']); // only .txt files
 And returns:
-```javascript
+
 {  
    "path":"./test/test_data",
    "children":[  
@@ -199,13 +189,14 @@ And returns:
       }
    ]
 }
-```
+Compare to the last one, it removes the .gitkeep file in "test\\test_data\\some_dir_2"
 
-Compare to the last one, it removes `.gitkeep` file in `"test\\test_data\\some_dir_2"`
+Note
 
-## Note
 Device, FIFO and socket files are ignored.
 
-Files to which the user does not have permissions are included in the directory
-tree, however, directories to which the user does not have permissions, along
-with all of its contained files, are completely ignored.
+Directories without permissions will be included, but its files will be ignored.
+
+License
+
+MIT

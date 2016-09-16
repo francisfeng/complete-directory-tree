@@ -4,13 +4,19 @@ Convert a directory (even is empty) tree to a JS object.
 
 ## Inspiration
 
-This is project is inspired by and based on [mihneadb/node-directory-tree](https://github.com/mihneadb/node-directory-tree)
+This project is inspired by and based on [mihneadb/node-directory-tree](https://github.com/mihneadb/node-directory-tree)
 
 ## Install
 
 ```
 npm install --save complete-directory-tree
 ````
+
+## Test
+```
+npm install
+npm test
+```
 
 ## Usage
 
@@ -19,32 +25,32 @@ var completeDirectoryTree = require('complete-directory-tree');
 var result = completeDirectoryTree('./test/test_data');
 ```
 
-This will take a directory tree:
+It takes a directory tree:
 
 ```
 test_data
 │
 ├── some_dir
 │  │
-│  │── another_dir
-│  │  │ │
-│  │  └─│ file_a.txt
-│  │	│
-│  │	└── file_b.txt
+│  ├── another_dir
+│  │   │
+│  │   ├── file_a.txt
+│  │   │
+│  │   └── file_b.txt
 │  │
-│  │── file_a.txt
+│  ├── file_a.txt
 │  │
 │  └── file_b.txt
 │
 ├── some_dir_2
-│	│
+│   │
 │   └── .gitkeep
 │
 ├── some_dir_3
 │
 ├── file_a.txt
 │
-│── file_a.txt
+├── file_a.txt
 ```
 
 and returns an object:
@@ -128,7 +134,7 @@ and returns an object:
 Also, it accepts an array of extensions.
 ```javascript
 var completeDirectoryTree = require('complete-directory-tree');
-var result = completeDirectoryTree('./test/test_data', ['.txt']);
+var result = completeDirectoryTree('./test/test_data', ['.txt']); // only .txt files
 ```
 
 And returns:
@@ -201,11 +207,12 @@ And returns:
 }
 ```
 
-Compare to the last one, it removes `.gitkeep` file in `"test\\test_data\\some_dir_2"`
+Compare to the last one, it removes the `.gitkeep` file in `"test\\test_data\\some_dir_2"`
 
 ## Note
 Device, FIFO and socket files are ignored.
 
-Files to which the user does not have permissions are included in the directory
-tree, however, directories to which the user does not have permissions, along
-with all of its contained files, are completely ignored.
+Directories without permissions will be included, but its files will be ignored.
+
+## License
+MIT
