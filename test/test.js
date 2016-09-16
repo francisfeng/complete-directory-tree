@@ -13,7 +13,7 @@ describe('directoryTree', () => {
 
     it('should have three directories in test directory', () => {
         const tree = dirtree('./test/test_data', ['.txt']);
-        expect(tree.children.length).to.equal(3);
+        expect(tree.children.length).to.equal(2);
     });
 
     it('should have zero directories in test directory', () => {
@@ -36,11 +36,6 @@ describe('directoryTree', () => {
         expect(tree.files.length).to.equal(1);
     });
 
-    it('should have zero file in test directory', () => {
-        const tree = dirtree('./test/test_data/some_dir_3');
-        expect(tree.files.length).to.equal(0);
-    });
-
     it('should have two files in the sub directory in test directory', () => {
         const tree = dirtree('./test/test_data/some_dir');
         expect(tree.children[0].files.length).to.equal(2);
@@ -50,7 +45,6 @@ describe('directoryTree', () => {
         const tree = dirtree('./test/test_data/some_dir_2');
         expect(tree.files[0].size).to.equal(2307);
     });
-
 
     it('should not crash with directories where the user does not have necessary permissions', () => {
         const tree = dirtree('/root/');
