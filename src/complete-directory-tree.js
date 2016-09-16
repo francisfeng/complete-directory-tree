@@ -3,13 +3,18 @@
 const PATH = require('path');
 const FS = require('fs');
 
-function directoryTreeAll(path, extensions) {
+function directoryTreeAll(path, extensions, options) {
+    let defaults = { };
+    let actuals = Object.assign({}, defaults, options);
     const result = {
         path: path,
+        name: PATH.basename(path),
         children: [],
         files: [],
     };
     let filesAndDirectories;
+
+
     try { filesAndDirectories = FS.readdirSync(path) }
     catch (ex) {
         //User does not have permissions, ignore directory

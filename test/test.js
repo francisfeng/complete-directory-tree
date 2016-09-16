@@ -46,6 +46,12 @@ describe('directoryTree', () => {
         expect(tree.files[0].size).to.equal(2307);
     });
 
+    it('should have directory name', () => {
+        const tree = dirtree('./test/test_data');
+        expect(tree.name).to.be.a('string');
+    });
+
+
     it('should not crash with directories where the user does not have necessary permissions', () => {
         const tree = dirtree('/root/');
         expect(tree).to.equal(null);
