@@ -1,24 +1,33 @@
- README.md
-complete-directory-tree
+# complete-directory-tree [![Build Status](https://travis-ci.org/francisfeng/complete-directory-tree.svg?branch=master)](https://travis-ci.org/francisfeng/complete-directory-tree)
+
 Convert a directory (even is empty) tree to a JS object.
 
-Inspiration
+## Inspiration
 
-This project is inspired by and based on mihneadb/node-directory-tree
+This project is inspired by and based on [mihneadb/node-directory-tree](https://github.com/mihneadb/node-directory-tree)
 
-Install
+## Install
 
+```
 npm install --save complete-directory-tree
-Test
+````
 
+## Test
+```
 npm install
 npm test
-Usage
+```
 
+## Usage
+
+```javascript
 var completeDirectoryTree = require('complete-directory-tree');
 var result = completeDirectoryTree('./test/test_data');
+```
+
 It takes a directory tree:
 
+```
 test_data
 │
 ├── some_dir
@@ -42,25 +51,28 @@ test_data
 ├── file_a.txt
 │
 ├── file_a.txt
+```
+
 and returns an object:
 
-{  
+```javascript
+{
    "path":"./test/test_data",
-   "children":[  
-      {  
+   "children":[
+      {
          "path":"test\\test_data\\some_dir",
-         "children":[  
-            {  
+         "children":[
+            {
                "path":"test\\test_data\\some_dir\\another_dir",
                "children":[],
-               "files":[  
-                  {  
+               "files":[
+                  {
                      "path":"test\\test_data\\some_dir\\another_dir\\file_a.txt",
                      "name":"file_a.txt",
                      "ex tension":".txt",
                      "size":13
                   },
-                  {  
+                  {
                      "path":"test\\test_data\\some_dir\\another_dir\\file_b.txt",
                      "name":"file_b.txt",
                      "extension":".txt",
@@ -69,14 +81,14 @@ and returns an object:
                ]
             }
          ],
-         "files":[  
-            {  
+         "files":[
+            {
                "path":"test\\test_data\\some_dir\\file_a.txt",
                "name":"file_a.txt",
                "extension":".txt",
                "siz e":13
             },
-            {  
+            {
                "path":"test\\test_data\\some_dir\\file_b.txt",
                "name":"file_b.txt",
                "extension":".txt",
@@ -84,11 +96,11 @@ and returns an object:
             }
          ]
       },
-      {  
+      {
          "path":"test\\test_data\\some_dir_2",
          "children":[],
-         "files":[  
-            {  
+         "files":[
+            {
                "path":"test\\test_data\\some_dir_2\\.gitkeep",
                "name":".gitkeep",
                "extens ion":"",
@@ -96,20 +108,20 @@ and returns an object:
             }
          ]
       },
-      {  
+      {
          "path":"test\\test_data\\some_dir_3",
          "children":[],
          "files":[]
       }
    ],
-   "files":[  
-      {  
+   "files":[
+      {
          "path":"test\\test_data\\file_a.txt",
          "name":"file_a.txt",
          "extension":".txt",
          "size":13
       },
-      {  
+      {
          "path":"test\\test_data\\file_b.txt",
          "name":"file_b.txt",
          "extension":".txt",
@@ -117,29 +129,33 @@ and returns an object:
       }
    ]
 }
-Also, it accepts an array of extensions.
+```
 
+Also, it accepts an array of extensions.
+```javascript
 var completeDirectoryTree = require('complete-directory-tree');
 var result = completeDirectoryTree('./test/test_data', ['.txt']); // only .txt files
-And returns:
+```
 
-{  
+And returns:
+```javascript
+{
    "path":"./test/test_data",
-   "children":[  
-      {  
+   "children":[
+      {
          "path":"test\\test_data\\some_dir",
-         "children":[  
-            {  
+         "children":[
+            {
                "path":"test\\test_data\\some_dir\\another_dir",
                "children":[],
-               "files":[  
-                  {  
+               "files":[
+                  {
                      "path":"test\\test_data\\some_dir\\another_dir\\file_a.txt",
                      "name":"file_a.txt",
                      "extension":".txt",
                      "size":13
                   },
-                  {  
+                  {
                      "path":"test\\test_data\\some_dir\\another_dir\\file_b.txt",
                      "name":"file_b.txt",
                      "extension":".txt",
@@ -148,14 +164,14 @@ And returns:
                ]
             }
          ],
-         "files":[  
-            {  
+         "files":[
+            {
                "path":"test\\test_data\\some_dir\\file_a.txt",
                "name":"file_a.txt",
                "extension":".txt",
                "size":13
             },
-            {  
+            {
                "path":"test\\test_data\\some_dir\\file_b.txt",
                "name":"file_b.txt",
                "extension":".txt",
@@ -163,25 +179,25 @@ And returns:
             }
          ]
       },
-      {  
+      {
          "path":"test\\test_data\\some_dir_2",
          "children":[],
          "files":[]
       },
-      {  
+      {
          "path":"test\\test_data\\some_dir_3",
          "children":[],
          "files":[]
       }
    ],
-   "files":[  
-      {  
+   "files":[
+      {
          "path":"test\\test_data\\file_a.txt",
          "name":"file_a.txt",
          "extension":".txt",
          "size":13
       },
-      {  
+      {
          "path":"test\\test_data\\file_b.txt",
          "name":"file_b.txt",
          "extension":".txt",
@@ -189,14 +205,14 @@ And returns:
       }
    ]
 }
-Compare to the last one, it removes the .gitkeep file in "test\\test_data\\some_dir_2"
+```
 
-Note
+Compare to the last one, it removes the `.gitkeep` file in `"test\\test_data\\some_dir_2"`
 
+## Note
 Device, FIFO and socket files are ignored.
 
 Directories without permissions will be included, but its files will be ignored.
 
-License
-
+## License
 MIT
