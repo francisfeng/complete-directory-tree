@@ -1,6 +1,6 @@
 {
   "name": "complete-directory-tree",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Convert a directory (even is empty) tree to a JS object.",
   "repository": {
     "type": "git",
