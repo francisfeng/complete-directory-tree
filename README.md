@@ -1,4 +1,4 @@
-# complete-directory-tree
+# complete-directory-tree [![Build Status](https://travis-ci.org/francisfeng/complete-directory-tree.svg?branch=master)](https://travis-ci.org/francisfeng/complete-directory-tree)
 
 Convert a directory (even is empty) tree to a JS object.
 
