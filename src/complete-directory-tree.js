@@ -3,7 +3,7 @@
 const PATH = require('path');
 const FS = require('fs');
 
-function directoryTreeAll(path, extensions, options) {
+function directoryTree(path, extensions, options) {
     let defaults = { };
     let actuals = Object.assign({}, defaults, options);
     const result = {
@@ -13,7 +13,6 @@ function directoryTreeAll(path, extensions, options) {
         files: [],
     };
     let filesAndDirectories;
-
 
     try { filesAndDirectories = FS.readdirSync(path) }
     catch (ex) {
@@ -39,10 +38,13 @@ function directoryTreeAll(path, extensions, options) {
                 size: stats.size
             });
         } else if (stats.isDirectory()) {
-            result.children.push(directoryTreeAll(item, extensions));
+            let walkResult = directoryTree(item, extensions, options);
+            if(walkResult !== null) {
+                result.children.push(walkResult);
+            }
         }
     }
     return result;
 }
 
-module.exports = directoryTreeAll;
+module.exports = directoryTree;

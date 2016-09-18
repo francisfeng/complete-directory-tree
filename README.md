@@ -58,12 +58,15 @@ and returns an object:
 ```javascript
 {  
    "path":"./test/test_data",
+   "name":"test_data",
    "children":[  
       {  
          "path":"test\\test_data\\some_dir",
+         "name":"some_dir",
          "children":[  
             {  
                "path":"test\\test_data\\some_dir\\another_dir",
+               "name":"another_dir",
                "children":[],
                "files":[  
                   {  
@@ -98,6 +101,7 @@ and returns an object:
       },
       {  
          "path":"test\\test_data\\some_dir_2",
+         "name":"some_dir_2",
          "children":[],
          "files":[  
             {  
@@ -110,6 +114,7 @@ and returns an object:
       },
       {  
          "path":"test\\test_data\\some_dir_3",
+         "name":"some_dir_3",
          "children":[],
          "files":[]
       }
@@ -141,18 +146,21 @@ And returns:
 ```javascript
 {  
    "path":"./test/test_data",
+   "name":"test_data",
    "children":[  
       {  
          "path":"test\\test_data\\some_dir",
+         "name":"some_dir",
          "children":[  
             {  
                "path":"test\\test_data\\some_dir\\another_dir",
+               "name":"another_dir",
                "children":[],
                "files":[  
                   {  
                      "path":"test\\test_data\\some_dir\\another_dir\\file_a.txt",
                      "name":"file_a.txt",
-                     "extension":".txt",
+                     "ex tension":".txt",
                      "size":13
                   },
                   {  
@@ -169,7 +177,7 @@ And returns:
                "path":"test\\test_data\\some_dir\\file_a.txt",
                "name":"file_a.txt",
                "extension":".txt",
-               "size":13
+               "siz e":13
             },
             {  
                "path":"test\\test_data\\some_dir\\file_b.txt",
@@ -181,11 +189,13 @@ And returns:
       },
       {  
          "path":"test\\test_data\\some_dir_2",
+         "name":"some_dir_2",
          "children":[],
          "files":[]
       },
       {  
          "path":"test\\test_data\\some_dir_3",
+         "name":"some_dir_3",
          "children":[],
          "files":[]
       }
@@ -212,7 +222,7 @@ Compare to the last one, it removes the `.gitkeep` file in `"test\\test_data\\so
 ## Note
 Device, FIFO and socket files are ignored.
 
-Directories without permissions will be included, but its files will be ignored.
+Directories without permissions will not be included.
 
 ## License
 MIT
